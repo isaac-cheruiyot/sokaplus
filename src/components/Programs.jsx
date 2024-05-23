@@ -26,9 +26,9 @@ const Programs = () => {
           <div>
             <FaFlagCheckered className='text-6xl text-blue-800 mx-auto' />
             <h2 className='text-xl font-semibold 
-            text-center'>After School Training Program</h2>
+            text-center'>Holiday Training Program</h2>
           </div>
-          <p className='text-center mt-4 line-clamp-4'>Elevate Your Skills Beyond the Classroom. Join our school-based program for tailored training sessions, thrilling tournaments, enriching camps, and much more.</p>
+          <p className='text-center mt-4 line-clamp-4'>Elevate Your Skills Beyond the Classroom. Join our Holiday program for tailored training sessions, thrilling tournaments, enriching camps, and much more.</p>
           <button className=' mt-4 mx-auto border-2 px-8 py-2 font-mono font-semibold text-yellow-500 border-yellow-500'>Learn More</button>
         </div>
 
@@ -37,9 +37,11 @@ const Programs = () => {
          border-gray-400 hover:border-yellow-300 hover:shadow-yellow-500 p-4 rounded'> 
           <div>
             <IoMdFootball className='text-6xl text-blue-800 mx-auto' />
-            <h2 className='text-xl font-semibold text-center'>International Soccer Camps</h2>
+            <h2 className='text-xl font-semibold text-center'>One on One Training</h2>
           </div>
-          <p className='text-center mt-4 line-clamp-4'>Expand Your Horizons on a Global Scale. Participate in prestigious international soccer camps and tournaments handpicked to scout and showcase talents, opening doors to limitless opportunities.</p>
+          <p className='text-center mt-4 line-clamp-4'>Expand Your Horizons on a Global Scale. Have one on one
+          sessions to further unlock your game and focus on career in football ,
+           opening doors to limitless opportunities.</p>
           <button className=' mt-4 mx-auto border-2 px-8 py-2 font-mono font-semibold text-yellow-500 border-yellow-500'>Learn More</button>
         </div>
       </div>

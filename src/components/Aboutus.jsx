@@ -24,7 +24,9 @@ const Aboutus = () => {
             <h1 className='text-2xl uppercase font-bold font-sans textblack'>Where Young Athletes Thrive</h1>
           </div>
         </div>
-        <p className='text-md text-gray-700'>Established in 2021 and proudly affiliated with the Kenya Football Federation, Nairobi West Branch, Sokaplus Academy is your premier destination for soccer training excellence in Kenya. Located in Ruiru, along Nairobi's eastern bypass, our academy provides a nurturing environment for athletes of all ages to hone their skills and develop their passion for the game.
+        <p className='text-md text-gray-700'>Established in 2021 we are located in Ruiru, along Nairobi's eastern bypass, our academy provides a nurturing environment for athletes of all ages to hone their skills and develop their passion for the game.
+Our program caters for children as young as 5 years and above. At Sokaplus Sporting, we're committed to fostering both athletic prowess and personal growth, ensuring that every player reaches their full 
+
           </p>
           <p className='mt-4 text-md text-gray-700'>Join us for action-packed weekend training sessions starting at 9 am and running until 12 pm. From our youngest players to the senior team, everyone is welcome to participate and experience the thrill of the game. At Sokaplus Sporting, we're committed to fostering both athletic prowess and personal growth, ensuring that every player reaches their full potential on and off the field. Come and be a part of our vibrant community as we strive for greatness together!</p>
           <Link to={'/about'}>

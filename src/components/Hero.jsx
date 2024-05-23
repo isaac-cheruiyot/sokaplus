@@ -8,9 +8,18 @@ import Image5 from '/Images/DSC_0076.webp';
 import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(1);
-  const images = [Image1, Image2, Image3, Image4, Image5];
-  const navigate = useNavigate()
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const imageGroups = [
+    [Image1, Image2, Image3],
+    [Image3, Image4, Image5],
+    [Image4, Image5, Image1]
+  ];
+  const messages = [
+    "Unlocking the potential - At Sokaplus Sporting, we're dedicated to nurturing the next generation of football stars. Our academy offers a unique blend of professional coaching, and a supportive environment where players can thrive and excel.",
+    "Creating a balance - We believe that players do not have to choose to either play or study. With many examples of professionals local and abroad who have excelled in both, we too encourage players to strike a balance.",
+    "The responsible player - A talented player will easily study and play football if he is responsible enough. We believe in collaboration with our parents to get the players a good support system they can rely on."
+  ];
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,38 +30,43 @@ const Hero = () => {
   }, [currentSlide]);
 
   const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide % images.length) + 1);
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % imageGroups.length);
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prevSlide) =>
-      prevSlide === 1 ? images.length : prevSlide - 1
-    );
-  };
   const goToSlide = (index) => {
     setCurrentSlide(index);
   };
 
   return (
-    <div style={{ backgroundImage: `url(${images[currentSlide ]})` }} className='bg-cover  h-screen w-screen  relative'>
-      <div className="absolute top-0 w-full left-0 h-full md:h-[100vh] bg-opacity-20 bg-red-600 px-4 ">
-
-        <div className='absolute bottom-8 w-full   right-0  md:w-2/3 md:left-0 px-4 md:px-8'>
-          <h1 className='text-white text-3xl w-full md:text-5xl font-semibold mb-4'>Unlock Your Football Potential</h1>
-          <p className='hidden md:block text-gray-200 text-xl   mb-4'>
-             At Sokaplus Sporting, we're dedicated to nurturing the next generation of football stars. Our academy offers a unique blend of professional coaching, state-of-the-art facilities, and a supportive environment where players can thrive and excel. shorter engaging and enticing</p>
-          <button onClick={()=>navigate('/contact')} className='text-lg px-8 py-2 font-semibold font-mono bg-white  text-blue-600'>Join Us Today</button>
+    <div className='relative h-screen w-screen overflow-hidden'>
+      <div className="absolute top-4 right-4 text-white z-10">
+        <p>Contact us at: info@sokaplus.com</p>
+      </div>
+      <div className="h-full w-full flex transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+        {imageGroups.map((group, index) => (
+          <div key={index} className="h-full w-full flex-shrink-0 flex">
+            {group.map((image, idx) => (
+              <div key={idx} style={{ backgroundImage: `url(${image})` }} className='bg-cover bg-center w-1/3 h-full' />
+            ))}
+          </div>
+        ))}
+      </div>
+      <div className="absolute top-0 w-full left-0 h-full bg-opacity-20 bg-red-600 px-4 flex flex-col justify-center">
+        <div className='w-full md:w-2/3 md:ml-8'>
+          <h1 className='text-white text-3xl md:text-5xl font-semibold mb-4'>{messages[currentSlide].split(" - ")[0]}</h1>
+          <p className='hidden md:block text-gray-200 text-xl mb-4'>
+            {messages[currentSlide].split(" - ")[1]}
+          </p>
+          <button onClick={() => navigate('/contact')} className='text-lg px-8 py-2 font-semibold font-mono bg-white text-blue-600'>Join Us Today</button>
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex space-x-2">
-            {images.map((_, index) => (
+            {imageGroups.map((_, index) => (
               <GoDotFill
                 key={index}
-                className={`text-2xl cursor-pointer ${
-                  currentSlide === index ? 'text-blue-500' : 'text-gray-100'
-                }`}
+                className={`text-2xl cursor-pointer ${currentSlide === index ? 'text-blue-500' : 'text-gray-100'}`}
                 onClick={() => goToSlide(index)}
               />
             ))}
-      </div>
+          </div>
         </div>
       </div>
     </div>
